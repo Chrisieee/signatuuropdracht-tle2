@@ -31,13 +31,11 @@ export class World1Scene extends Scene {
         })
         this.add(label1)
 
-        // for (let i = 0; i < 6; i++) {
-        //     const levelSelect = new LevelSelect(100, 100, i + 1)
-        //     this.add(levelSelect)
-        // }
+        for (let i = 0; i < 6; i++) {
+            const levelSelect = new LevelSelect(200 + i * 300, 1080 / 2 + 100, i + 1)
+            this.add(levelSelect)
+        }
 
-        const levelSelect = new LevelSelect(100, 100, 1)
-        this.add(levelSelect)
     }
 
     onInitialize(engine) {

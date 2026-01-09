@@ -2,6 +2,9 @@ import { ImageSource, FontSource, Sound, Resource, Loader } from 'excalibur'
 
 const Resources = {
     Level: new ImageSource('images/star.png'),
+    Player: new ImageSource('images/character.png'),
+    Hat: new ImageSource('images/cap.png'),
+    Ground: new ImageSource('images/ground.png'),
 
     HeadFont: new FontSource('fonts/Bubblegum.ttf', 'heads'),
     BasicFont: new FontSource('fonts/ComicNeue-Regular.ttf', 'basic'),
