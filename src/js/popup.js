@@ -3,12 +3,15 @@ import { Resources } from './resources.js'
 
 export class PopUp extends Actor {
 
-    constructor(kind, x, y, scale) {
+    constructor(kind, kind2, x, y, scale) {
         super()
+        this.sprite = Resources.PopUp.toSprite()
+        this.graphics.use(this.sprite)
+        this.pos = new Vector(x, y)
 
         const label = new Label({
             text: kind,
-            pos: new Vector(x, y),
+            pos: new Vector(0, -20),
             font: Resources.BasicFont.toFont({
                 unit: FontUnit.Px,
                 size: 75,
@@ -16,8 +19,20 @@ export class PopUp extends Actor {
                 color: Color.Black
             })
         })
+        label.scale = new Vector(scale, scale)
         this.addChild(label)
-        this.scale = new Vector(scale, scale)
+        const label1 = new Label({
+            text: kind2,
+            pos: new Vector(0, 0),
+            font: Resources.BasicFont.toFont({
+                unit: FontUnit.Px,
+                size: 75,
+                textAlign: TextAlign.Center,
+                color: Color.Black
+            })
+        })
+        label1.scale = new Vector(scale, scale)
+        this.addChild(label1)
 
         this.timer = 360
     }

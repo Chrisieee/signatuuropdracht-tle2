@@ -4,6 +4,7 @@ import { friendsGroup } from "./collisiongroup.js"
 import { PowerUp } from './powerUp.js'
 import { Hat } from './hat.js'
 import { PopUp } from './popup.js'
+import { Sign } from './sign.js'
 
 export class Player extends Actor {
 
@@ -66,10 +67,15 @@ export class Player extends Actor {
 
     #hitSomething(e, delta) {
         const other = e.other.owner
+        console.log(other)
 
         if (other instanceof PowerUp) {
             other.gotHit()
             this.#pickUpPowerUp()
+        }
+
+        if (other instanceof Sign) {
+            other.showPopUp()
         }
     }
 
@@ -82,11 +88,11 @@ export class Player extends Actor {
         this.hat = new Hat()
         this.addChild(this.hat)
 
-        this.#showPopUp("Leider", 0, -350, 0.33)
+        this.#showPopUp("Leider", "", 0, 0)
     }
 
-    #showPopUp(kind, x, y) {
-        this.popup = new PopUp(kind, x, y, 0.33)
+    #showPopUp(kind, kind2, x, y) {
+        this.popup = new PopUp(kind, kind2, x, y, 0.33)
         this.addChild(this.popup)
     }
 }

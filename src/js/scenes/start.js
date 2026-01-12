@@ -51,7 +51,7 @@ export class StartGameScene extends Scene {
 
     onPostUpdate(engine) {
         if (engine.input.keyboard.wasPressed(Keys.Enter)) {
-            engine.loadWorld1()
+            engine.loadLevel1()
         }
     }
 }

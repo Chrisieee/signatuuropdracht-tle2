@@ -14,14 +14,10 @@ export class PowerUp extends Actor {
         this.#sprite = Resources.Hat.toSprite()
         this.graphics.use(this.#sprite)
         this.scale = new Vector(2, 2)
-        this.pos = new Vector(800, 500)
+        this.pos = new Vector(500, 600)
     }
 
     gotHit() {
-        let kind = "Leider"
-        let popup = new PopUp(kind)
-        popup.pos = this.pos.clone().add(new Vector(0, -100))
-        this.scene.add(popup)
         this.kill()
     }
 }
