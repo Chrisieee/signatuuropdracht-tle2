@@ -2,6 +2,8 @@ import { Actor, Vector, Keys, CollisionType, DegreeOfFreedom, Axes, Buttons } fr
 import { Resources } from './resources.js'
 import { friendsGroup } from "./collisiongroup.js"
 import { PowerUp } from './powerUp.js'
+import { Hat } from './hat.js'
+import { PopUp } from './popup.js'
 
 export class Player extends Actor {
 
@@ -14,7 +16,7 @@ export class Player extends Actor {
 
         super({
             width: Resources.Player.width,
-            height: Resources.Player.height,
+            height: Resources.Player.height - 5,
             collisionType: CollisionType.Active,
             collisionGroup: friendsGroup
         })
@@ -36,7 +38,7 @@ export class Player extends Actor {
         this.events.on("collisionstart", (e) => this.#hitSomething(e))
     }
 
-    onPostUpdate(engine) {
+    onPostUpdate(engine, delta) {
         let xspeed = 0
 
         if (engine.input.keyboard.isHeld(Keys.A)) {
@@ -44,7 +46,7 @@ export class Player extends Actor {
             this.#sprite.flipHorizontal = true
             if (this.#powerUp === true) {
                 this.hat.sprite.flipHorizontal = true
-                this.hat.pos = new Vector(-15, -140)
+                this.hat.pos = new Vector(-5, -43)
             }
         }
         if (engine.input.keyboard.isHeld(Keys.D)) {
@@ -52,25 +54,39 @@ export class Player extends Actor {
             this.#sprite.flipHorizontal = false
             if (this.#powerUp === true) {
                 this.hat.sprite.flipHorizontal = false
-                this.hat.pos = new Vector(15, -140)
+                this.hat.pos = new Vector(5, -43)
             }
         }
         this.vel.x = xspeed
+
+        if (engine.input.keyboard.wasPressed(Keys.Space) && this.vel.y === 0) {
+            this.#jump(delta)
+        }
     }
 
     #hitSomething(e, delta) {
         const other = e.other.owner
 
         if (other instanceof PowerUp) {
-            Resources.Item.play(0.5)
             other.gotHit()
             this.#pickUpPowerUp()
         }
+    }
+
+    #jump(delta) {
+        this.body.applyLinearImpulse(new Vector(0, -100 * delta))
     }
 
     #pickUpPowerUp() {
         this.#powerUp = true
         this.hat = new Hat()
         this.addChild(this.hat)
+
+        this.#showPopUp("Leider", 0, -350, 0.33)
+    }
+
+    #showPopUp(kind, x, y) {
+        this.popup = new PopUp(kind, x, y, 0.33)
+        this.addChild(this.popup)
     }
 }

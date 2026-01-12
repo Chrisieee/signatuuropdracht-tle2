@@ -4,6 +4,8 @@ import { Player } from '../character.js'
 import { Ground } from '../ground.js'
 import { Border } from '../border.js'
 import { Ui } from '../ui.js'
+import { PowerUp } from '../powerUp.js'
+import { PopUp } from '../popup.js'
 
 export class W1Level1Scene extends Scene {
 
@@ -19,7 +21,7 @@ export class W1Level1Scene extends Scene {
     }
 
     resetScene() {
-        let border = new Border()
+        let border = new Border(1080, 3800)
         this.add(border)
 
         for (let i = 0; i < 7; i++) {
@@ -30,10 +32,18 @@ export class W1Level1Scene extends Scene {
         this.player = new Player()
         this.add(this.player)
 
-        this.camera.strategy.lockToActor(this.player)
-        this.camera.strategy.limitCameraBounds(new BoundingBox(0, -1080, 3440, 1080))
+        this.powerup = new PowerUp()
+        this.add(this.powerup)
 
-        this.ui = new Ui("level 1")
+        this.camera.strategy.lockToActor(this.player)
+        this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 3800, 1080))
+
+        this.ui = new Ui("1:1 TLE1")
         this.add(this.ui)
+    }
+
+    popup(kind) {
+        this.popup = new PopUp(kind)
+        this.add(this.popup)
     }
 }

@@ -21,7 +21,7 @@ export class Game extends Engine {
             physics: {
                 solver: SolverStrategy.Arcade,
                 gravity: new Vector(0, 800),
-            }
+            },
         })
         this.showDebug(true)
         this.start(ResourceLoader).then(() => this.startGame())
@@ -30,12 +30,13 @@ export class Game extends Engine {
     startGame() {
         this.add('start', new StartGameScene())
         this.add('world1', new World1Scene())
-
+        this.add('level1', new W1Level1Scene())
         this.loadStart()
     }
 
     loadStart() {
-        this.goToScene('start')
+        // this.goToScene('start')
+        this.goToScene('level1')
     }
 
     // laad wereld 1 en alle levels

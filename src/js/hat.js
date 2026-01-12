@@ -14,8 +14,6 @@ export class Hat extends Actor {
 
         this.sprite = Resources.Hat.toSprite()
         this.graphics.use(this.sprite)
-
-        this.pos = new Vector(20, -275)
     }
 
     death() {

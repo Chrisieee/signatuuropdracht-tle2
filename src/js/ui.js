@@ -12,7 +12,7 @@ export class Ui extends ScreenElement {
             pos: new Vector(1920 / 2, 50),
             font: Resources.HeadFont.toFont({
                 unit: FontUnit.Px,
-                size: 150,
+                size: 125,
                 textAlign: TextAlign.Center,
                 color: Color.Black
             })
