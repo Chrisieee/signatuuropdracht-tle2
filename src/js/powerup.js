@@ -15,6 +15,7 @@ export class PowerUp extends Actor {
         this.graphics.use(this.#sprite)
         this.scale = new Vector(2, 2)
         this.pos = new Vector(500, 600)
+        this.addTag("powerup")
     }
 
     gotHit() {

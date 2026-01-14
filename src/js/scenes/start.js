@@ -45,13 +45,9 @@ export class StartGameScene extends Scene {
         this.add(this.#label2)
     }
 
-    onInitialize(engine) {
-
-    }
-
     onPostUpdate(engine) {
         if (engine.input.keyboard.wasPressed(Keys.Enter)) {
-            engine.loadLevel1()
+            engine.loadLevel3()
         }
     }
 }

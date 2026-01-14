@@ -1,16 +1,16 @@
 import { Actor, Vector, Keys, CollisionType, DegreeOfFreedom, Axes, Buttons } from "excalibur"
 import { Resources } from './resources.js'
 import { friendsGroup } from "./collisiongroup.js"
-import { PowerUp } from './powerUp.js'
 import { Hat } from './hat.js'
 import { PopUp } from './popup.js'
 import { Sign } from './sign.js'
+import { End } from './end.js'
+import { Bug } from './bug.js'
 
 export class Player extends Actor {
 
     #sprite
     #powerUp
-    lives
     hat
 
     constructor() {
@@ -28,7 +28,6 @@ export class Player extends Actor {
         this.graphics.opacity = 1
         this.scale = new Vector(3, 3)
 
-        this.lives = 3
         this.#powerUp = false
 
         this.body.mass = 3
@@ -41,58 +40,83 @@ export class Player extends Actor {
 
     onPostUpdate(engine, delta) {
         let xspeed = 0
-
-        if (engine.input.keyboard.isHeld(Keys.A)) {
-            xspeed = -500
-            this.#sprite.flipHorizontal = true
-            if (this.#powerUp === true) {
-                this.hat.sprite.flipHorizontal = true
-                this.hat.pos = new Vector(-5, -43)
+        if (!this.scene.activepopup) {
+            if (engine.input.keyboard.isHeld(Keys.A)) {
+                xspeed = -500
+                this.#sprite.flipHorizontal = true
+                if (this.#powerUp === true) {
+                    this.hat.sprite.flipHorizontal = true
+                    this.hat.pos = new Vector(-5, -43)
+                }
             }
-        }
-        if (engine.input.keyboard.isHeld(Keys.D)) {
-            xspeed = 500
-            this.#sprite.flipHorizontal = false
-            if (this.#powerUp === true) {
-                this.hat.sprite.flipHorizontal = false
-                this.hat.pos = new Vector(5, -43)
+            if (engine.input.keyboard.isHeld(Keys.D)) {
+                xspeed = 500
+                this.#sprite.flipHorizontal = false
+                if (this.#powerUp === true) {
+                    this.hat.sprite.flipHorizontal = false
+                    this.hat.pos = new Vector(5, -43)
+                }
             }
-        }
-        this.vel.x = xspeed
+            this.vel.x = xspeed
 
-        if (engine.input.keyboard.wasPressed(Keys.Space) && this.vel.y === 0) {
-            this.#jump(delta)
+            if (engine.input.keyboard.wasPressed(Keys.Space) && this.vel.y === 0) {
+                this.#jump(delta)
+            }
+
+            if (this.pos.y > 1080) {
+                this.#death()
+            }
         }
     }
 
     #hitSomething(e, delta) {
         const other = e.other.owner
-        console.log(other)
+        // console.log(other)
 
-        if (other instanceof PowerUp) {
+        if (other.constructor.name === "PowerUp") {
             other.gotHit()
             this.#pickUpPowerUp()
+            this.#showPopUp()
+        }
+        else if (other instanceof Bug) {
+            if (e.side === "Bottom") {
+                other.gotHit()
+            } else {
+                this.#death()
+            }
         }
 
-        if (other instanceof Sign) {
+        else if (other instanceof Sign) {
             other.showPopUp()
+        }
+
+        else if (other instanceof End) {
+            if (this.scene.endactive === true) {
+                other.load()
+            } else if (other.level === 3 && !this.scene.activepopup) {
+                this.scene.endPopup()
+            } else if (other.level === 4 && !this.scene.activepopup) {
+                this.scene.endPopup()
+            }
         }
     }
 
     #jump(delta) {
-        this.body.applyLinearImpulse(new Vector(0, -100 * delta))
+        this.body.applyLinearImpulse(new Vector(0, -150 * delta))
     }
 
     #pickUpPowerUp() {
         this.#powerUp = true
         this.hat = new Hat()
         this.addChild(this.hat)
-
-        this.#showPopUp("Leider", "", 0, 0)
     }
 
-    #showPopUp(kind, kind2, x, y) {
-        this.popup = new PopUp(kind, kind2, x, y, 0.33)
+    #showPopUp() {
+        this.popup = new PopUp("Rol:", "Leider", 0, -100, 0.25)
         this.addChild(this.popup)
+    }
+
+    #death() {
+        this.scene.resetScene(false)
     }
 }

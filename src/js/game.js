@@ -1,8 +1,9 @@
 import '../css/style.css'
-import { Actor, Engine, Vector, DisplayMode, SolverStrategy } from "excalibur"
+import { Actor, Engine, Vector, DisplayMode, SolverStrategy, Fade, Color } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { StartGameScene } from './scenes/start.js'
 import { World1Scene } from './scenes/world1.js'
+import { BookScene } from './scenes/level0.js'
 import { W1Level1Scene } from './scenes/w1level1.js'
 import { W1Level2Scene } from './scenes/w1level2.js'
 import { W1Level3Scene } from './scenes/w1level3.js'
@@ -18,6 +19,7 @@ export class Game extends Engine {
             height: 1080,
             maxFps: 60,
             displayMode: DisplayMode.FitScreen,
+            suppressPlayButton: true,
             physics: {
                 solver: SolverStrategy.Arcade,
                 gravity: new Vector(0, 800),
@@ -29,6 +31,7 @@ export class Game extends Engine {
 
     startGame() {
         this.add('start', new StartGameScene())
+        this.add('level0', new BookScene())
         this.add('level1', new W1Level1Scene())
         this.add('level2', new W1Level2Scene())
         this.add('level3', new W1Level3Scene())
@@ -42,6 +45,10 @@ export class Game extends Engine {
     loadStart() {
         this.goToScene('start')
         // this.goToScene('level1')
+    }
+
+    loadLevel0() {
+        this.goToScene('level0')
     }
 
     // de level laad functies

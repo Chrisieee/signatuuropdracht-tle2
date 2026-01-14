@@ -3,20 +3,19 @@ import { Player } from '../character.js'
 import { Ground } from '../ground.js'
 import { Border } from '../border.js'
 import { Ui } from '../ui.js'
-import { PowerUp } from '../powerUp.js'
+import { BeginPopUp } from '../beginpopup.js'
 import { Sign } from '../sign.js'
 import { End } from '../end.js'
 import { Bg } from '../background.js'
-import { BeginPopUp } from '../beginpopup.js'
 
-export class W1Level1Scene extends Scene {
+export class BookScene extends Scene {
 
     player
     end
     ui
     activepopup
 
-    constructor(engine) {
+    constructor() {
         super()
 
         this.activepopup = false
@@ -33,7 +32,7 @@ export class W1Level1Scene extends Scene {
         let border = new Border(1080, 3800)
         this.add(border)
 
-        let bg = new Bg("Tle1BG")
+        let bg = new Bg("BookBG")
         this.add(bg)
 
         for (let i = 0; i < 7; i++) {
@@ -41,41 +40,38 @@ export class W1Level1Scene extends Scene {
             this.add(ground)
         }
 
-        let sign = new Sign(700, 750, "Leiding nemen is niet een rol", "die ik normaal op me neem.")
+        let sign = new Sign(700, 750, "Visueel maken werkt heel", "goed om ideeën over te brengen.")
         this.add(sign)
 
-        let sign1 = new Sign(1400, 750, "Beter de leiding kunnen", "nemen door iedereen te betrekken.")
+        let sign1 = new Sign(1400, 750, "Change favors people who do lots", "of experiments and pay attention.")
         this.add(sign1)
 
-        let sign2 = new Sign(2100, 750, "Eerder aan de bel trekken op", "het moment dat het niet goed gaat.")
+        let sign2 = new Sign(2100, 750, "Action Catalyst hier stonden veel", "manieren om je een duwtje te geven.")
         this.add(sign2)
 
-        let sign3 = new Sign(2800, 750, "Als ik denk dat iemand AI", "gebruikt eerder aanspreken.")
+        let sign3 = new Sign(2800, 750, "Je moet niet te vroeg je ideeën", "bekritiseren en daardoor afstrepen.")
         this.add(sign3)
 
-        this.end = new End(3700, 415, 2)
+        this.end = new End(3700, 415, 1)
         this.add(this.end)
 
         this.player = new Player()
         this.add(this.player)
 
-        this.powerup = new PowerUp()
-        this.add(this.powerup)
-
         this.camera.strategy.lockToActor(this.player)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 3800, 1080))
 
-        this.ui = new Ui("1:1 TLE1")
+        this.ui = new Ui("0:1 Nachtkastboek")
         this.add(this.ui)
 
         this.popup = new BeginPopUp(false, [
-            "Tijdens deze TLE gingen we een concept ontwerpen voor in",
-            "de toekomst. Dit was erg interessant, maar ook erg lastig",
-            "omdat je natuurlijk niet precies weet wat de toekomst gaat brengen.",
-            "",
-            "Uit het boek past het feit dat je niet te veel ideeën moet",
-            "bekritiseren hier heel goed bij, omdat het juist goed kan helpen",
-            "om de gekste en creatieve ideeën te bedenken."
+            "Creativiteit is iets wat je kunt leren terwijl veel mensen",
+            "denken dat dit iets is wat in je moet zitten als persoon.",
+            "Op het gebied van creative confident gaat het vooral over",
+            "het durven beginnen en het naar buiten brengen van een idee.",
+            "Hierbij hoort ook een stukje durven falen, want hoe eerder je",
+            "“faalt” hoe eerder je kunt leren dat je idee beter ontwikkeld",
+            "kan worden zodat je niet al je geld en tijd investeert in 1 idee."
         ])
         this.activepopup = true
         this.add(this.popup)

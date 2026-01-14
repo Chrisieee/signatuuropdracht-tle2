@@ -12,7 +12,7 @@ export class Sign extends Actor {
             width: Resources.Sign.width,
             height: Resources.Sign.height,
             collisionType: CollisionType.Passive,
-            z: -1000,
+            z: -500,
         })
 
         this.sprite = Resources.Sign.toSprite()
@@ -22,6 +22,7 @@ export class Sign extends Actor {
         this.pos = new Vector(x, y)
         this.kind = kind
         this.kind2 = kind2
+        this.addTag("sign")
     }
 
     showPopUp() {
