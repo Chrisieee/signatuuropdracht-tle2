@@ -93,9 +93,12 @@ export class Player extends Actor {
         else if (other instanceof End) {
             if (this.scene.endactive === true) {
                 other.load()
-            } else if (other.level === 3 && !this.scene.activepopup) {
+            }
+            if (other.level === 3 && !this.scene.activepopup) {
                 this.scene.endPopup()
             } else if (other.level === 4 && !this.scene.activepopup) {
+                this.scene.endPopup()
+            } else if (other.level === 5 && !this.scene.activepopup) {
                 this.scene.endPopup()
             }
         }

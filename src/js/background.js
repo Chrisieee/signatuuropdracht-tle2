@@ -35,5 +35,12 @@ export class Bg extends Actor {
             this.scale = new Vector(3.5, 3.5)
             this.graphics.opacity = 0.5
         }
+
+        if (this.bg === "TestBG") {
+            this.graphics.use(Resources.TestBG.toSprite())
+            this.pos = new Vector(3800 / 2, 0)
+            this.scale = new Vector(5, 5)
+            this.graphics.opacity = 0.5
+        }
     }
 }

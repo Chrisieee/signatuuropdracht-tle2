@@ -16,7 +16,7 @@ const Resources = {
     Tle1BG: new ImageSource('images/tle1bg.jpg'),
     DeskBG: new ImageSource('images/deskbg.jpg'),
     UserBG: new ImageSource('images/userbg.jpg'),
-
+    TestBG: new ImageSource('images/testbg.jpg'),
 
     HeadFont: new FontSource('fonts/Bubblegum.ttf', 'heads'),
     BasicFont: new FontSource('fonts/ComicNeue-Regular.ttf', 'basic'),
