@@ -73,7 +73,7 @@ export class Player extends Actor {
         const other = e.other.owner
         // console.log(other)
 
-        if (other.constructor.name === "PowerUp") {
+        if (other.constructor.name === "PowerUp" || other instanceof PowerUp || other.hasTag("powerup")) {
             other.gotHit()
             this.#pickUpPowerUp()
             this.#showPopUp()

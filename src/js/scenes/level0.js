@@ -43,7 +43,7 @@ export class BookScene extends Scene {
         let sign = new Sign(700, 750, "Visueel maken werkt heel", "goed om ideeën over te brengen.")
         this.add(sign)
 
-        let sign1 = new Sign(1400, 750, "Change favors people who do lots", "of experiments and pay attention.")
+        let sign1 = new Sign(1400, 750, "'Change favors people who do lots", "of experiments and pay attention.'")
         this.add(sign1)
 
         let sign2 = new Sign(2100, 750, "Action Catalyst hier stonden veel", "manieren om je een duwtje te geven.")
