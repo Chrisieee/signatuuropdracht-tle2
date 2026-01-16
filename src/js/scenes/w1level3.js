@@ -46,7 +46,7 @@ export class W1Level3Scene extends Scene {
         const platform = new Platform(900, 600, "Ik vond het moeilijk om echt de", "toekomst in te denken.")
         this.add(platform)
 
-        const platform1 = new Platform(1600, 400, "Het bedenken hoe een persoon denkt", "had ik beter kunnen doen.")
+        const platform1 = new Platform(1600, 400, "Het bedenken hoe een persoon", "denkt had ik beter kunnen doen.")
         this.add(platform1)
 
         const platform2 = new Platform(2500, 800, "Ik beter kunnen ingaan op wat de", "persoon ervaard tijdens dit punt.")
@@ -71,8 +71,8 @@ export class W1Level3Scene extends Scene {
                 "je de nazorg doet. Je kijkt dan naar mogelijke pijnpunten die zich voor",
                 "kunnen doen tijdens deze journey. Dit zijn punten waar kansen liggen",
                 "en waar je je kunt onderschijden van de concurrentie. Deze map word",
-                "gemaakt op basis van aannames die je later zal moeten gaan onderzoeken.",
-                ""
+                "gemaakt op basis van aannames die je later zal moeten gaan",
+                "onderzoeken."
             ])
             this.activepopup = true
             this.add(this.beginpopup)
@@ -100,5 +100,9 @@ export class W1Level3Scene extends Scene {
     bugPopup(kind, kind2, x, y) {
         this.popup = new PopUp(kind, kind2, x, y, 0.1, 3)
         this.add(this.popup)
+    }
+
+    loadNextLevel() {
+        this.engine.loadLevel4()
     }
 }

@@ -77,4 +77,8 @@ export class W3Level2Scene extends Scene {
         this.activepopup = true
         this.add(this.popup)
     }
+
+    loadNextLevel() {
+        this.engine.loadLevel15()
+    }
 }

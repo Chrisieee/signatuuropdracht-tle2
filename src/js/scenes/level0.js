@@ -95,4 +95,8 @@ export class BookScene extends Scene {
         this.endactive = true
     }
 
+    loadNextLevel() {
+        this.engine.loadLevel1()
+    }
+
 }

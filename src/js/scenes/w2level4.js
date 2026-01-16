@@ -41,13 +41,13 @@ export class W2Level4Scene extends Scene {
         const ground = new Ground(285, 975)
         this.add(ground)
 
-        const platform = new Platform(800, 500, "Ik had een beetj half leiding", "dit had ik beter kunnen doen.")
+        const platform = new Platform(800, 500, "Ik had een beetje half leiding", "dit had ik beter kunnen doen.")
         this.add(platform)
 
-        const platform1 = new Platform(1700, 200, "Ik had eerder de stift kunnen pakken", "om te tekenen.")
+        const platform1 = new Platform(1700, 200, "Ik had eerder de stift kunnen", "pakken om te tekenen.")
         this.add(platform1)
 
-        const platform2 = new Platform(2500, 400, "Ik had iedereen beter kunnen betrekken", "zodat iedereens gehoord werd.")
+        const platform2 = new Platform(2500, 400, "Ik wou beter kunnen betrekken", "zodat iedereen gehoord werd.")
         this.add(platform2)
 
         const platform3 = new EmptyPlatform(3553, 52)
@@ -101,5 +101,9 @@ export class W2Level4Scene extends Scene {
     bugPopup(kind, kind2, x, y) {
         this.popup = new PopUp(kind, kind2, x, y, 0.1, 3)
         this.add(this.popup)
+    }
+
+    loadNextLevel() {
+        this.engine.loadLevel11()
     }
 }

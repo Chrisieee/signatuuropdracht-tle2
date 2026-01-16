@@ -102,4 +102,8 @@ export class W2Level5Scene extends Scene {
         this.popup = new PopUp(kind, kind2, x, y, 0.1, 3)
         this.add(this.popup)
     }
+
+    loadNextLevel() {
+        this.engine.loadLevel12()
+    }
 }

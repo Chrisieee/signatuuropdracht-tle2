@@ -44,7 +44,7 @@ export class W3Level3Scene extends Scene {
         let sign = new Sign(700, 750, "Tijdens de volgende TLE ga ik beter", "mensen aanspreken als ik leider ben.")
         this.add(sign)
 
-        let sign1 = new Sign(1400, 750, "Tijdens de volgende TLE ga ik beter", "code afstemmen met mijn teamgenoten.")
+        let sign1 = new Sign(1400, 750, "Tijdens de volgende TLE ga ik beter", "code afstemmen met mijn team.")
         this.add(sign1)
 
         let sign2 = new Sign(2100, 750, "Tijdens de volgende TLE ga ik mijn", "dingen nog een keer zelf testen.")
@@ -76,5 +76,9 @@ export class W3Level3Scene extends Scene {
         ])
         this.activepopup = true
         this.add(this.popup)
+    }
+
+    loadNextLevel() {
+        this.engine.loadStart()
     }
 }

@@ -41,7 +41,7 @@ export class BeginPopUp extends Actor {
     death() {
         this.scene.activepopup = false
         if (this.end) {
-            this.scene.activateEnd()
+            this.scene.loadNextLevel()
         }
         this.kill()
     }

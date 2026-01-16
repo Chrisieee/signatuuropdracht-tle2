@@ -41,7 +41,7 @@ export class W2Level6Scene extends Scene {
         const ground = new Ground(285, 975)
         this.add(ground)
 
-        const platform = new Platform(1200, 500, "Ik had beter naar de aandachtspunten", "willen kijken voor de codereview.")
+        const platform = new Platform(1200, 500, "Ik had beter naar de WCAG punten", "willen kijken voor de codereview.")
         this.add(platform)
 
         const platform1 = new Platform(2200, 100, "Ik had nog meer tijd willen nemen", "zodat het helemaal toegangelijk is.")
@@ -79,13 +79,13 @@ export class W2Level6Scene extends Scene {
 
     endPopup() {
         this.endpopup = new BeginPopUp(true, "high", [
-            "Ik kende voor TLE2 wel een aantal punten zo was ik tijdens een CLE naar",
+            "Ik kende voor TLE2 wel een aantal punten zo was ik vorig jaar naar",
             "een event geweest over Accessibility geweest waar verschillende punten",
-            "werden benoemt. Wel waren er nog heel veel nieuw en hierom was ik heel",
-            "blij dat we een checklist kregen om te kijken wat er allemaal in moest.",
-            "Hierbij kan ik het boek wat ik gelezen niet heel goed koppelen. Wel is",
-            "het heel belangrijk om te zorgen dat iedereen het kan gebruiken en dus",
-            "denkt aan de eind gebruiker."
+            "werden benoemt. Wel waren er nog heel veel nieuw en hierom was ik",
+            "heel blij dat we een checklist kregen om te kijken wat er allemaal in",
+            "moest. Hierbij kan ik het boek wat ik gelezen niet heel goed koppelen.",
+            "Wel is het heel belangrijk om te zorgen dat iedereen het kan gebruiken",
+            "en dus denkt aan de eind gebruiker."
         ])
         this.activepopup = true
         this.add(this.endpopup)
@@ -98,5 +98,9 @@ export class W2Level6Scene extends Scene {
     bugPopup(kind, kind2, x, y) {
         this.popup = new PopUp(kind, kind2, x, y, 0.1, 3)
         this.add(this.popup)
+    }
+
+    loadNextLevel() {
+        this.engine.loadLevel13()
     }
 }

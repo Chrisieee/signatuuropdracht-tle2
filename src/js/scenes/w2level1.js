@@ -80,4 +80,8 @@ export class W2Level1Scene extends Scene {
         this.activepopup = true
         this.add(this.popup)
     }
+
+    loadNextLevel() {
+        this.engine.loadLevel8()
+    }
 }
