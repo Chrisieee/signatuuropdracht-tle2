@@ -41,16 +41,16 @@ export class W3Level3Scene extends Scene {
             this.add(ground)
         }
 
-        let sign = new Sign(700, 750, "Ik had strenger moeten zijn,", "omdat ze me vertrouwen met de rol.")
+        let sign = new Sign(700, 750, "Tijdens de volgende TLE ga ik beter", "mensen aanspreken als ik leider ben.")
         this.add(sign)
 
-        let sign1 = new Sign(1400, 750, "Nog meer de leidings rol pakken", "zodat er echt een leider is.")
+        let sign1 = new Sign(1400, 750, "Tijdens de volgende TLE ga ik beter", "code afstemmen met mijn teamgenoten.")
         this.add(sign1)
 
-        let sign2 = new Sign(2100, 750, "Beter mensen aanspreken", "als dit nodig is.")
+        let sign2 = new Sign(2100, 750, "Tijdens de volgende TLE ga ik mijn", "dingen nog een keer zelf testen.")
         this.add(sign2)
 
-        let sign3 = new Sign(2800, 750, "Misschien volgende keer iemand", "anders de rol laten pakken.")
+        let sign3 = new Sign(2800, 750, "Tijdens de volgende TLE ga ik beter", "nadenken of ik de leider wil zijn.")
         this.add(sign3)
 
         this.end = new End(3700, 415, 16)
@@ -66,13 +66,13 @@ export class W3Level3Scene extends Scene {
         this.add(this.ui)
 
         this.popup = new BeginPopUp(false, "low", [
-            "Tijdens deze TLE gingen we aan de slag voor natuurmonumenten. Het",
-            "was super tof om voor een opdrachtgever te werken, want dit vond",
-            "ik een super toffe kans. Wel gaf dit ook wel weer wat druk om iets",
-            "moois te leveren.",
-            "Uit het boek paste deze TLE het experimenten goed, omdat we het op",
-            "tijd moesten testen voor we heel veel tijd hadden geinvesteerd. Ook",
-            "moesten we niet te snel ideeën afschrijven om een goed idee te maken."
+            "Ik heb een hoop geleerd tijdens de eerste twee TLE's van dit jaar",
+            "maar er zijn zeker nog een hoop dingen die beter kunnen. Deze heb ik",
+            "in korte actiepunten gezet. Hier ga ik aan willen werken tijdens de",
+            "volgende TLE.",
+            "",
+            "In dit level zal ik een aantal van deze actiepunten voor de volgende",
+            "TLE benoemen.",
         ])
         this.activepopup = true
         this.add(this.popup)
