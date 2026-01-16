@@ -6,6 +6,7 @@ import { PopUp } from './popup.js'
 import { Sign } from './sign.js'
 import { End } from './end.js'
 import { Bug } from './bug.js'
+import { PowerUp } from './powerUp.js'
 
 export class Player extends Actor {
 
@@ -77,20 +78,15 @@ export class Player extends Actor {
             other.gotHit()
             this.#pickUpPowerUp()
             this.#showPopUp()
-        }
-        else if (other instanceof Bug) {
+        } else if (other instanceof Bug) {
             if (e.side === "Bottom") {
                 other.gotHit()
             } else {
                 this.#death()
             }
-        }
-
-        else if (other instanceof Sign) {
+        } else if (other instanceof Sign) {
             other.showPopUp()
-        }
-
-        else if (other instanceof End) {
+        } else if (other instanceof End) {
             if (this.scene.endactive === true) {
                 other.load()
             } else if (this.scene.endPopup()) {
