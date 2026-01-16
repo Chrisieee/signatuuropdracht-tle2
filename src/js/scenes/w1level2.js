@@ -31,7 +31,7 @@ export class W1Level2Scene extends Scene {
     resetScene(first) {
         this.clear()
 
-        let border = new Border(2160, 3800)
+        let border = new Border(1080, 3800)
         this.add(border)
 
         let bg = new Bg("DeskBG")
@@ -64,11 +64,11 @@ export class W1Level2Scene extends Scene {
         this.camera.strategy.lockToActor(this.player)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, -1080, 3800, 1080))
 
-        this.ui = new Ui("1:2 Deskresearch")
+        this.ui = new Ui("2:2 Deskresearch")
         this.add(this.ui)
 
         if (first === true) {
-            this.beginpopup = new BeginPopUp(false, [
+            this.beginpopup = new BeginPopUp(false, "low", [
                 "Tijdens het uitvoeren van deskresearch zoek je naar trends en haal je",
                 "hier inzichten uit. Hierdoor kan je kansen en bedreigingen herkennen.",
                 "Dit is heel belangrijk om te doen, want je kunt door het herkennen van",
@@ -83,7 +83,7 @@ export class W1Level2Scene extends Scene {
     }
 
     endPopup() {
-        this.endpopup = new BeginPopUp(true, [
+        this.endpopup = new BeginPopUp(true, "low", [
             "Dit kende ik al, omdat ik bij mijn vorige opleiding een DESTEP heb",
             "moeten maken. Dit zorgde ervoor dat ik dit niet heel leuk vond om te",
             "doen tijdens TLE. Wat ik wel heb geleerd na TLE1 is dat het misschien",

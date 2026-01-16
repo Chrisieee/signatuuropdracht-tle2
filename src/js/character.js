@@ -93,12 +93,7 @@ export class Player extends Actor {
         else if (other instanceof End) {
             if (this.scene.endactive === true) {
                 other.load()
-            }
-            if (other.level === 3 && !this.scene.activepopup) {
-                this.scene.endPopup()
-            } else if (other.level === 4 && !this.scene.activepopup) {
-                this.scene.endPopup()
-            } else if (other.level === 5 && !this.scene.activepopup) {
+            } else if (this.scene.endPopup()) {
                 this.scene.endPopup()
             }
         }
@@ -115,7 +110,7 @@ export class Player extends Actor {
     }
 
     #showPopUp() {
-        this.popup = new PopUp("Rol:", "Leider", 0, -100, 0.25)
+        this.popup = new PopUp("Rol:", "Leider", 0, -100, 0.25, 1)
         this.addChild(this.popup)
     }
 

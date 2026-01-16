@@ -3,7 +3,7 @@ import { Resources } from './resources.js'
 
 export class BeginPopUp extends Actor {
 
-    constructor(end, kinds) {
+    constructor(end, h, kinds) {
         super({ collisionType: CollisionType.PreventCollision, z: 1000 })
         this.sprite = Resources.BeginPopUp.toSprite()
         this.graphics.use(this.sprite)
@@ -11,7 +11,9 @@ export class BeginPopUp extends Actor {
         this.scale = new Vector(10, 10)
 
         this.end = end
-        if (this.end) {
+        if (this.end && h === "high") {
+            this.pos = new Vector(1920 / 2 + 1920, -100)
+        } else if (this.end) {
             this.pos = new Vector(1920 / 2 + 1920, 1080 / 2 + 100)
         } else {
             this.pos = new Vector(1920 / 2, 1080 / 2 + 100)

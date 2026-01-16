@@ -9,7 +9,7 @@ import { End } from '../end.js'
 import { Bg } from '../background.js'
 import { BeginPopUp } from '../beginpopup.js'
 
-export class W1Level1Scene extends Scene {
+export class W3Level2Scene extends Scene {
 
     player
     end
@@ -33,7 +33,7 @@ export class W1Level1Scene extends Scene {
         let border = new Border(1080, 3800)
         this.add(border)
 
-        let bg = new Bg("Tle1BG")
+        let bg = new Bg("NextBG")
         this.add(bg)
 
         for (let i = 0; i < 7; i++) {
@@ -41,41 +41,38 @@ export class W1Level1Scene extends Scene {
             this.add(ground)
         }
 
-        let sign = new Sign(700, 750, "Leiding nemen is niet een rol", "die ik normaal op me neem.")
+        let sign = new Sign(700, 750, "Testen: Dit is heel belangrijk, maar", " heb ik zeker nog wat werk aan.")
         this.add(sign)
 
-        let sign1 = new Sign(1400, 750, "Beter de leiding kunnen", "nemen door iedereen te betrekken.")
+        let sign1 = new Sign(1400, 750, "Ontwerpen: Dit vind ik heel leuk en", "ben ik ook wel bekwaam in.")
         this.add(sign1)
 
-        let sign2 = new Sign(2100, 750, "Eerder aan de bel trekken op", "het moment dat het niet goed gaat.")
+        let sign2 = new Sign(2100, 750, "Crazy 8's: Vind ik soms wel lastig,", "maar kan wel tot goeie ideeën leiden.")
         this.add(sign2)
 
-        let sign3 = new Sign(2800, 750, "Als ik denk dat iemand AI", "gebruikt eerder aanspreken.")
+        let sign3 = new Sign(2800, 750, "Storyboard: Heb ik tijdens TLE2 al", "een extra keer toegepast en is fijn.")
         this.add(sign3)
 
-        this.end = new End(3700, 415, 2)
+        this.end = new End(3700, 415, 15)
         this.add(this.end)
 
         this.player = new Player()
         this.add(this.player)
 
-        this.powerup = new PowerUp()
-        this.add(this.powerup)
-
         this.camera.strategy.lockToActor(this.player)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 3800, 1080))
 
-        this.ui = new Ui("2:1 TLE1")
+        this.ui = new Ui("4:2 Toolkit")
         this.add(this.ui)
 
         this.popup = new BeginPopUp(false, "low", [
-            "Tijdens deze TLE gingen we een concept ontwerpen voor in",
-            "de toekomst. Dit was erg interessant, maar ook erg lastig",
-            "omdat je natuurlijk niet precies weet wat de toekomst gaat brengen.",
+            "Tijdens de eerste twee TLE's heb ik nieuwe methodes geleerd, maar ook",
+            "methodes op andere manieren geleerd te gebruiken. Hiervan heb ik veel",
+            "geleerd en kan ik ook zeker meer over leren. De ene methode gaat me",
+            "beter af dan de andere.",
             "",
-            "Uit het boek past het feit dat je niet te veel ideeën moet",
-            "bekritiseren hier heel goed bij, omdat het juist goed kan helpen",
-            "om de gekste en creatieve ideeën te bedenken."
+            "In dit level zal ik de methodes benoemen waar ik het meeste interesse",
+            "in heb en welke ik dus met name mee neem in mijn toolkit.",
         ])
         this.activepopup = true
         this.add(this.popup)

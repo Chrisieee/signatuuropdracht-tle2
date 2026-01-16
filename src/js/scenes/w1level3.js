@@ -31,7 +31,7 @@ export class W1Level3Scene extends Scene {
     resetScene(first) {
         this.clear()
 
-        let border = new Border(2160, 3800)
+        let border = new Border(1080, 3800)
         this.add(border)
 
         let bg = new Bg("UserBG")
@@ -61,11 +61,11 @@ export class W1Level3Scene extends Scene {
         this.camera.strategy.lockToActor(this.player)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, -1080, 3800, 1080))
 
-        this.ui = new Ui("1:3 User Journey Map")
+        this.ui = new Ui("2:3 User Journey Map")
         this.add(this.ui)
 
         if (first === true) {
-            this.beginpopup = new BeginPopUp(false, [
+            this.beginpopup = new BeginPopUp(false, "low", [
                 "Tijdens het maken van een User Journey Map kijk je naar de manier",
                 "waarop je klant bij jouw product komt, hem gebrukt, maar ook naar hoe",
                 "je de nazorg doet. Je kijkt dan naar mogelijke pijnpunten die zich voor",
@@ -80,14 +80,14 @@ export class W1Level3Scene extends Scene {
     }
 
     endPopup() {
-        this.endpopup = new BeginPopUp(true, [
+        this.endpopup = new BeginPopUp(true, "low", [
             "Tijdens mijn vorige opleiding heb ik ook User Journey Maps moeten",
             "maken. Alleen heb ik tijdens deze TLE meer geleerd hoe ik dit kan",
             "doen terwijl de mogelijke gebruikers heel lang in de toekomst leven.",
             "Dit vond ik lastig, maar vond ik wel een interessante uitdaging. In",
             "het boek kwam naar voren dat visueel goed werkt om en ik denk dat",
-            "dit bij een User Journey ook heel goed kan werken. Door bijvoorbeeld",
-            "de gevoelens visueel te maken word het ook fijner om te zien."
+            "dit bij een User Journey ook heel goed kan werken. Ook is de user",
+            "journey map een van de creative challenges die in het boek staan."
         ])
         this.activepopup = true
         this.add(this.endpopup)

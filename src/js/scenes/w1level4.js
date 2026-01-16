@@ -31,7 +31,7 @@ export class W1Level4Scene extends Scene {
     resetScene(first) {
         this.clear()
 
-        let border = new Border(2160, 3800)
+        let border = new Border(1080, 3800)
         this.add(border)
 
         let bg = new Bg("TestBG")
@@ -61,11 +61,11 @@ export class W1Level4Scene extends Scene {
         this.camera.strategy.lockToActor(this.player)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, -1080, 3800, 1080))
 
-        this.ui = new Ui("1:4 Testen")
+        this.ui = new Ui("2:4 Testen")
         this.add(this.ui)
 
         if (first === true) {
-            this.beginpopup = new BeginPopUp(false, [
+            this.beginpopup = new BeginPopUp(false, "low", [
                 "Het testen van je concept kan je op veel verschillende manieren doen",
                 "zo kan je klant gesprekken doen, prototype testen, A/B test uitvoeren,",
                 "maar je kunt ook een nep advertentie uitzetten. En zo zijn er nog wel",
@@ -80,7 +80,7 @@ export class W1Level4Scene extends Scene {
     }
 
     endPopup() {
-        this.endpopup = new BeginPopUp(true, [
+        this.endpopup = new BeginPopUp(true, "low", [
             "Tijdens mijn vorige opleiding heb ik ook testen moeten uitvoeren.",
             "Hier heb ik alleen altijd de makkelijke weg gekozen. Zo deed ik vaak",
             "testen die ik vanuit mijn eigen laptop kon doen zodat ik niet naar",

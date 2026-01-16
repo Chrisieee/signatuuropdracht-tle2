@@ -8,8 +8,9 @@ import { Bg } from '../background.js'
 import { BeginPopUp } from '../beginpopup.js'
 import { PopUp } from '../popup.js'
 import { Platform } from '../platform.js'
+import { EmptyPlatform } from '../emptyplatform.js'
 
-export class W1Level5Scene extends Scene {
+export class W2Level4Scene extends Scene {
 
     player
     end
@@ -34,25 +35,25 @@ export class W1Level5Scene extends Scene {
         let border = new Border(1080, 3800)
         this.add(border)
 
-        let bg = new Bg("OntwerpBG")
+        let bg = new Bg("StoryBG")
         this.add(bg)
 
         const ground = new Ground(285, 975)
         this.add(ground)
 
-        const ground2 = new Ground(3553, 975)
-        this.add(ground2)
-
-        const platform = new Platform(900, 600, "Ik had meer moeten leren over", "figma zodat het sneller ging.")
+        const platform = new Platform(800, 500, "Ik had een beetj half leiding", "dit had ik beter kunnen doen.")
         this.add(platform)
 
-        const platform1 = new Platform(1800, 300, "Ik had meer tijd moeten maken", "hiervoor voor meer duidelijkheid.")
+        const platform1 = new Platform(1700, 200, "Ik had eerder de stift kunnen pakken", "om te tekenen.")
         this.add(platform1)
 
-        const platform2 = new Platform(2600, 600, "Duidelijkere styleguide zodat", "het voor iedereen duidelijk is.")
+        const platform2 = new Platform(2500, 400, "Ik had iedereen beter kunnen betrekken", "zodat iedereens gehoord werd.")
         this.add(platform2)
 
-        this.end = new End(3700, 415, 6)
+        const platform3 = new EmptyPlatform(3553, 52)
+        this.add(platform3)
+
+        this.end = new End(3700, -415, 11)
         this.add(this.end)
 
         this.player = new Player()
@@ -61,17 +62,17 @@ export class W1Level5Scene extends Scene {
         this.camera.strategy.lockToActor(this.player)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, -1080, 3800, 1080))
 
-        this.ui = new Ui("2:5 Ontwerpen")
+        this.ui = new Ui("3:4 Storyboard")
         this.add(this.ui)
 
         if (first === true) {
             this.beginpopup = new BeginPopUp(false, "low", [
-                "Het onderdeel ontwerpen bestaan uit het maken van low en high fidelity",
-                "wireframes, maar ook over het maken van prototypes wat je op",
-                "verschillende manieren kan aanpakken. Hier gaat het vooral over het",
-                "maken van low fidelity wireframes op papier die je snel schetst. En",
-                "over high fidelity wireframes die we maken of figma die uiteideljk",
-                "worden samengevoegt tot een prototype.",
+                "Het maken van een storyboard kan goed helpen om ideeën op papier",
+                "te zetten. Dit doe je meestal voor een verhaal bijvoorbeeld voor een",
+                "film. Maar je kan het ook gebruiken om het proces tijdens het gebruik",
+                "van een product te laten zien of om de pagina's in een app te laten zien. ",
+                "Tijdens TLE hebben we het gebruikt om de flow van de app op papier",
+                "te zetten.",
                 ""
             ])
             this.activepopup = true
@@ -80,14 +81,14 @@ export class W1Level5Scene extends Scene {
     }
 
     endPopup() {
-        this.endpopup = new BeginPopUp(true, "low", [
-            "Op mijn vorige opleiding heb ik wel eens prototypes moeten maken",
-            "alleen zat de focus dan meer op een MVP prototype en niet zo op",
-            "wireframes. Dit is dus wel iets anders dan wat ik toen heb gedaan.",
-            "Ook heb ik het toen vaak gemaakt in Adobe XD dus figma was voor mij",
-            "erg nieuw. Wel komt het belang van het visueel maken goed terug in",
-            "het boek, maar ook het belang van vroeg testen wat ook een grote",
-            "reden is om een prototype te ontwerpen is."
+        this.endpopup = new BeginPopUp(true, "high", [
+            "Het maken van een storyboard heb ik wel al eens gedaan als MVP tijdens",
+            "mijn vorige opleiding, maar deze vorm van een storyboard maken was",
+            "helemaal nieuw voor mij.",
+            "",
+            "Uit het boek komt hier ook weer het visuele naar voren, omdat dit een",
+            "groot doel is van het maken van een storyboard. Hiermee kan je de flow",
+            "goed zichtbaar maken en zorgen dat je allemaal op een lijn zit."
         ])
         this.activepopup = true
         this.add(this.endpopup)

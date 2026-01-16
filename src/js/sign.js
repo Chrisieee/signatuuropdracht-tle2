@@ -26,7 +26,7 @@ export class Sign extends Actor {
     }
 
     showPopUp() {
-        this.popup = new PopUp(this.kind, this.kind2, 0, -70, 0.1)
+        this.popup = new PopUp(this.kind, this.kind2, 0, -70, 0.1, 1)
         this.addChild(this.popup)
     }
 }

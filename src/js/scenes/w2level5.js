@@ -8,8 +8,9 @@ import { Bg } from '../background.js'
 import { BeginPopUp } from '../beginpopup.js'
 import { PopUp } from '../popup.js'
 import { Platform } from '../platform.js'
+import { EmptyPlatform } from '../emptyplatform.js'
 
-export class W1Level5Scene extends Scene {
+export class W2Level5Scene extends Scene {
 
     player
     end
@@ -34,25 +35,25 @@ export class W1Level5Scene extends Scene {
         let border = new Border(1080, 3800)
         this.add(border)
 
-        let bg = new Bg("OntwerpBG")
+        let bg = new Bg("UsBG")
         this.add(bg)
 
         const ground = new Ground(285, 975)
         this.add(ground)
 
-        const ground2 = new Ground(3553, 975)
-        this.add(ground2)
-
-        const platform = new Platform(900, 600, "Ik had meer moeten leren over", "figma zodat het sneller ging.")
+        const platform = new Platform(800, 450, "Ik had de acceptatiecriteria beter", "uit willen schrijven en overleggen.")
         this.add(platform)
 
-        const platform1 = new Platform(1800, 300, "Ik had meer tijd moeten maken", "hiervoor voor meer duidelijkheid.")
+        const platform1 = new Platform(1700, 50, "Ik had de definition of done beter", "uit willen schrijven en overleggen.")
         this.add(platform1)
 
-        const platform2 = new Platform(2600, 600, "Duidelijkere styleguide zodat", "het voor iedereen duidelijk is.")
+        const platform2 = new Platform(2600, -350, "De User Stories overlapte", "soms te veel.")
         this.add(platform2)
 
-        this.end = new End(3700, 415, 6)
+        const platform3 = new EmptyPlatform(3553, 52)
+        this.add(platform3)
+
+        this.end = new End(3700, -415, 12)
         this.add(this.end)
 
         this.player = new Player()
@@ -61,17 +62,17 @@ export class W1Level5Scene extends Scene {
         this.camera.strategy.lockToActor(this.player)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, -1080, 3800, 1080))
 
-        this.ui = new Ui("2:5 Ontwerpen")
+        this.ui = new Ui("3:5 User Stories")
         this.add(this.ui)
 
         if (first === true) {
             this.beginpopup = new BeginPopUp(false, "low", [
-                "Het onderdeel ontwerpen bestaan uit het maken van low en high fidelity",
-                "wireframes, maar ook over het maken van prototypes wat je op",
-                "verschillende manieren kan aanpakken. Hier gaat het vooral over het",
-                "maken van low fidelity wireframes op papier die je snel schetst. En",
-                "over high fidelity wireframes die we maken of figma die uiteideljk",
-                "worden samengevoegt tot een prototype.",
+                "Het schrijven van User Storries helpen je bij het bedenken wat je",
+                "je allemaal moet gaan maken. Dit is een grote stap in het maken van",
+                "een planning voor tijdens de technische sprints. Hierbij is het belangrijk",
+                "om de behoefte van de gebruiker duidelijk te maken. Ook moet je goeie",
+                "acceptatie criteria en definition of done schrijven zodat het voor het",
+                "hele team duidelijk is waar de story over gaat.",
                 ""
             ])
             this.activepopup = true
@@ -80,14 +81,14 @@ export class W1Level5Scene extends Scene {
     }
 
     endPopup() {
-        this.endpopup = new BeginPopUp(true, "low", [
-            "Op mijn vorige opleiding heb ik wel eens prototypes moeten maken",
-            "alleen zat de focus dan meer op een MVP prototype en niet zo op",
-            "wireframes. Dit is dus wel iets anders dan wat ik toen heb gedaan.",
-            "Ook heb ik het toen vaak gemaakt in Adobe XD dus figma was voor mij",
-            "erg nieuw. Wel komt het belang van het visueel maken goed terug in",
-            "het boek, maar ook het belang van vroeg testen wat ook een grote",
-            "reden is om een prototype te ontwerpen is."
+        this.endpopup = new BeginPopUp(true, "high", [
+            "User Stories kende ik voor deze opleiding helemaal nog niet, omdat",
+            "dit meer voor technisch vlak is. Welke kende ik het natuurlijk al van",
+            "ontwerpen ut de eerste. ",
+            "",
+            "Hierbij kan ik het boek wat ik gelezen niet heel goed koppelen. Wel is",
+            "het heel belangrijk om de behoefte van de gebruiker voor ogen te",
+            "hebben en dit kwam wel belangrijk in het boek."
         ])
         this.activepopup = true
         this.add(this.endpopup)

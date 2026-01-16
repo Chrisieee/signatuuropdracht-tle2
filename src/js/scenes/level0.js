@@ -19,7 +19,7 @@ export class BookScene extends Scene {
         super()
 
         this.activepopup = false
-        this.endactive = true
+        this.endactive = false
     }
 
     onActivate(context) {
@@ -61,10 +61,10 @@ export class BookScene extends Scene {
         this.camera.strategy.lockToActor(this.player)
         this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 3800, 1080))
 
-        this.ui = new Ui("0:1 Nachtkastboek")
+        this.ui = new Ui("1:1 Nachtkastboek")
         this.add(this.ui)
 
-        this.popup = new BeginPopUp(false, [
+        this.popup = new BeginPopUp(false, "low", [
             "Creativiteit is iets wat je kunt leren terwijl veel mensen",
             "denken dat dit iets is wat in je moet zitten als persoon.",
             "Op het gebied van creative confident gaat het vooral over",
@@ -76,4 +76,23 @@ export class BookScene extends Scene {
         this.activepopup = true
         this.add(this.popup)
     }
+
+    endPopup() {
+        this.endpopup = new BeginPopUp(true, "low", [
+            "Van de belangrijkste inzichten heb ik een aantal dingen al kunnen",
+            "toepassen tijdens TLE. Zo heb ik om mijn idee over te brengen aan",
+            "mijn team een storyboard gemaakt zodat het visueel zou zijn. Ook",
+            "Heb ik mezelf proberen uit te dagen door nieuwe dingen te proberen.",
+            "Daarnaast heb ik geprobeerd om mijn ideeën niet te snel af te strepen",
+            "wel kan dit nog beter. De action catalyst en het expirimenten had ik",
+            "nog meer kunnen toepassen tijdens de eerste twee TLE's."
+        ])
+        this.activepopup = true
+        this.add(this.endpopup)
+    }
+
+    activateEnd() {
+        this.endactive = true
+    }
+
 }
